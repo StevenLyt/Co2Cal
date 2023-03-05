@@ -31,7 +31,9 @@ import MKButton from "components/MKButton";
 class Period extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      value: 1,
+    };
   }
 
   render() {
@@ -39,7 +41,7 @@ class Period extends Component {
       <>
         <BaseLayout>
           <Container>
-            <Grid container alginItems="center" justifyContent="center">
+            <Grid container justifyContent="center">
               <Grid
                 item
                 xs={12}
@@ -59,25 +61,22 @@ class Period extends Component {
             <Grid container spacing={3} alginItems="center" justifyContent="center">
               <Grid item xs={12} lg={4}>
                 <RadioGroup
-                  value={option.value}
+                  value={this.state.value}
                   onChange={(e) => {
-                    option.value = Number(e.target.value);
-                    this.setState({});
-                    if (option.hasOwnProperty("control")) {
-                      for (let key2 in option.control) {
-                        option.control[key2].forEach((control) => {
-                          if (Number(e.target.value) === control) {
-                            this.state.options[key2].value = 0;
-                            this.setState({});
-                          }
-                        });
-                      }
-                    }
+                    this.setState({ value: e.target.value });
+                    console.log(this.state.value);
                   }}
                 >
-                  <FormControlLabel key={id} value={id} control={<Radio />} label={opt} />;
-                  <FormControlLabel key={id} value={id} control={<Radio />} label={opt} />;
-                  <FormControlLabel key={id} value={id} control={<Radio />} label={opt} />;
+                  <FormControlLabel
+                    key="Day"
+                    value={0}
+                    control={<Radio />}
+                    label="Day"
+                    sx={{ fontSize: "px" }}
+                  />
+                  ;
+                  <FormControlLabel key="Week" value={1} control={<Radio />} label="Week" />;
+                  <FormControlLabel key="Month" value={2} control={<Radio />} label="Month" />;
                 </RadioGroup>
               </Grid>
             </Grid>
@@ -86,9 +85,11 @@ class Period extends Component {
                 variant="gradient"
                 color="info"
                 endIcon={<ArrowForwardIosIcon />}
-                textAlign="center"
+                // textAlign="center"
                 href="/transportation"
-                onClick={() => {}}
+                onClick={() => {
+                  localStorage.setItem("period", this.state.value);
+                }}
               >
                 Next: Transportation
               </MKButton>

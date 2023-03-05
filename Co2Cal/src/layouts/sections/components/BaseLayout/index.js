@@ -33,7 +33,7 @@ import bgImage from "assets/fp2.webp";
 // Routes
 import routes from "routes";
 
-function BaseLayout({ title, children }) {
+function BaseLayout({ children }) {
   return (
     <MKBox display="flex" flexDirection="column" minHeight="100vh">
       <DefaultNavbar
@@ -72,8 +72,6 @@ function BaseLayout({ title, children }) {
 
 // Typechecking props for the BaseLayout
 BaseLayout.propTypes = {
-  // breadcrumb: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };
 

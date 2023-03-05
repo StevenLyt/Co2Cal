@@ -44,6 +44,10 @@ class Transportation extends Component {
       tempIntercityTrain: 0,
     };
   }
+  
+  componentDidMount() {
+    console.log(localStorage.getItem("period"));
+  }
 
   changeCar = (value) => {
     const parsed = parseInt(value, 10);
@@ -116,34 +120,14 @@ class Transportation extends Component {
       <>
         <BaseLayout>
           <Container>
-            <Grid container alginItems="center" justifyContent="center">
-              <Grid
-                item
-                xs={12}
-                md={12}
-                mt={15}
-                mb={15}
-                alginItems="center"
-                justifyContent="center"
-              >
+            <Grid container justifyContent="center">
+              <Grid item xs={12} md={12} mt={15} mb={15} justifyContent="center">
                 <MKTypography variant="h1" textAlign="center">
                   Transportation
                 </MKTypography>
               </Grid>
             </Grid>
-            {/* <Card
-              sx={{
-                p: 2,
-                mx: { xs: 2, lg: 3 },
-                mt: -8,
-                mb: 4,
-                // backgroundColor: ({ palette: { white }, functions: { rgba } }) =>
-                //   rgba(white.main, 0.8),
-                // backdropFilter: "saturate(200%) blur(30px)",
-                // boxShadow: ({ boxShadows: { xxl } }) => xxl,
-              }}
-            > */}
-            <Grid container spacing={3} alginItems="center" justifyContent="center">
+            <Grid container spacing={3} justifyContent="center">
               <Grid item xs={12} lg={4}>
                 <FilledInfoCard
                   variant="gradient"
@@ -222,7 +206,7 @@ class Transportation extends Component {
               </Grid>
             </Grid>
             {/* </Card> */}
-            <Grid container mt={5} alginItems="center" justifyContent="center">
+            <Grid container mt={5} justifyContent="center">
               <MKButton
                 variant="gradient"
                 color="info"
