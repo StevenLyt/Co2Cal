@@ -1,11 +1,11 @@
 {
-  "short_name": "Material Kit",
-  "name": "Material Kit 2 React",
+  "short_name": "Co2Cal",
+  "name": "CO2 Calculator",
   "icons": [
     {
-      "src": "favicon.png",
+      "src": "fp.jpeg",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/png"
+      "type": "image/jpeg"
     }
   ],
   "start_url": ".",

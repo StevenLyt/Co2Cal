@@ -120,19 +120,19 @@ function FilledInfoCard({ variant, color, icon, title, description, action }) {
       </Grid>
       <MKBox pt={{ xs: 3, md: 0 }} pl={{ xs: 0, md: 2 }} lineHeight={1}>
         <Grid container>
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12} md={8} sx={{ textAlign: "center" }}>
             <MKInput
-              required
+              
               fullWidth
               type="text"
               onChange={(e) => action.funcT(e.target.value)}
               onBlur={(e) => action.func(e.target.value)}
               value={action.value || ""}
               sx={{
-                textAlign: "center",
-                outline: "none",
+                // outline: "none",
                 outlineWidth: "0px",
                 border: "2px solid grey",
+                borderRadius: "10px",
               }}
             />
           </Grid>

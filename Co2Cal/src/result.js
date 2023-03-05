@@ -54,7 +54,7 @@ class Result extends Component {
       fruitAndVeg: 0,
       wine: 0,
 
-      transportation: { recommendation: "sdsdsds", stats: 0 },
+      transportation: {},
       utilities: {},
       foodAndClothing: {},
       restaurantAndAccommodation: {},
