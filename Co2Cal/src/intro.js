@@ -80,7 +80,8 @@ function Intro() {
               color="success"
               mt={-6}
               mb={1}
-              fontStyle="italic"
+              fontSize = "100px"
+              fontStyle= "italic"
               sx={({ breakpoints, typography: { size } }) => ({
                 [breakpoints.down("md")]: {
                   fontSize: size["3xl"],
