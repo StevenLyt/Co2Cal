@@ -36,7 +36,7 @@ class Result extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fetched: true,
+      fetched: false,
       car: 0,
       bus: 0,
       subway: 0,
@@ -54,7 +54,7 @@ class Result extends Component {
       fruitAndVeg: 0,
       wine: 0,
 
-      transportation: { recommendation: 0, stats: 0 },
+      transportation: { recommendation: "sdsdsds", stats: 0 },
       utilities: {},
       foodAndClothing: {},
       restaurantAndAccommodation: {},
@@ -66,6 +66,9 @@ class Result extends Component {
   async componentDidMount() {
     const data = window.localStorage;
     const data2Send = [
+      {
+        unit: data.getItem("period"),
+      },
       {
         name: "NATURALGAS",
         value: data.getItem("gas"),
@@ -133,7 +136,7 @@ class Result extends Component {
     ];
     console.log(data2Send);
     const url = "https://74xxrc6bkblhweowdhb53cjdjq0cnlzf.lambda-url.us-west-1.on.aws/";
-    await fetch("url", {
+    await fetch(url, {
       method: "POST",
       body: JSON.stringify(data2Send),
     })
@@ -144,22 +147,22 @@ class Result extends Component {
         const stats = res[1];
         const values = res[0];
         this.setState({
-          gas: values[0].value,
-          electricity: values[1].value,
-          water: values[2].value,
-          car: values[3].value,
-          bus: values[4].value,
-          subway: values[5].value,
-          intercityTrain: values[6].value,
-          airplane: values[7].value,
-          hotel: values[8].value,
-          restaurant: values[9].value,
-          other: values[10].value,
-          clothing: values[11].value,
-          dairy: values[12].value,
-          meat: values[13].value,
-          fruitAndVeg: values[14].value,
-          wine: values[15].value,
+          gas: parseFloat(values[0].value),
+          electricity: parseFloat(values[1].value),
+          water: parseFloat(values[2].value),
+          car: parseFloat(values[3].value),
+          bus: parseFloat(values[4].value),
+          subway: parseFloat(values[5].value),
+          intercityTrain: parseFloat(values[6].value),
+          airplane: parseFloat(values[7].value),
+          hotel: parseFloat(values[8].value),
+          restaurant: parseFloat(values[9].value),
+          other: parseFloat(values[10].value),
+          clothing: parseFloat(values[11].value),
+          dairy: parseFloat(values[12].value),
+          meat: parseFloat(values[13].value),
+          fruitAndVeg: parseFloat(values[14].value),
+          wine: parseFloat(values[15].value),
           foodAndClothing: stats.CONSUMER_GOODS,
           restaurantAndAccommodation: stats.ACCOMMODATION,
           utilities: stats.UTILITIES,
@@ -207,13 +210,13 @@ class Result extends Component {
                       image={carFront}
                       icon={<FontAwesomeIcon icon={faCar} />}
                       title="Transportation"
-                      description={
+                      description={(
                         this.state.car +
                         this.state.bus +
                         this.state.subway +
                         this.state.airplane +
                         this.state.intercityTrain
-                      }
+                      ).toFixed(2)}
                     />
                     <RotatingCardBack
                       description=""
@@ -234,10 +237,13 @@ class Result extends Component {
                       image={utilitiesFront}
                       icon={<FontAwesomeIcon icon={faFaucet} />}
                       title="Home Utilities"
-                      description={this.state.gas + this.state.electricity + this.state.water}
+                      description={(
+                        this.state.gas +
+                        this.state.electricity +
+                        this.state.water
+                      ).toFixed(2)}
                     />
                     <RotatingCardBack
-                      // image={bgBack}
                       title={this.state.utilities ? this.state.utilities.stats : ""}
                       description=""
                       action={{
@@ -254,14 +260,14 @@ class Result extends Component {
                       image={foodFront}
                       icon={<FontAwesomeIcon icon={faBowlRice} />}
                       title="Food & Clothing"
-                      description={
+                      description={(
                         this.state.other +
                         this.state.clothing +
                         this.state.dairy +
                         this.state.meat +
                         this.state.fruitAndVeg +
                         this.state.wine
-                      }
+                      ).toFixed(2)}
                     />
                     <RotatingCardBack
                       title={this.state.foodAndClothing ? this.state.foodAndClothing.stats : ""}
@@ -283,7 +289,7 @@ class Result extends Component {
                       image={restaurantFront}
                       icon={<FontAwesomeIcon icon={faUtensils} />}
                       title="Restaurant & Accommodation"
-                      description={this.state.hotel + this.state.restaurant}
+                      description={(this.state.hotel + this.state.restaurant).toFixed(2)}
                     />
                     <RotatingCardBack
                       title={
@@ -324,7 +330,7 @@ class Result extends Component {
                 shadow="sm"
               >
                 <MKBox display="flex" alginItems="center" justifyContent="center" p={2}>
-                  <MKTypography variant="h4">Here is our recommendations </MKTypography>
+                  <MKTypography variant="h4">Here are our recommendations </MKTypography>
                 </MKBox>
                 <Divider sx={{ my: 0 }} />
                 <MKBox px={6} py={3} textAlign="left">

@@ -63,34 +63,39 @@ const routes = [
     rowsPerColumn: 2,
     collapse: [
       {
-        name: "Period",
-        route: "/period",
-        component: <Period />,
-      },
-      {
-        name: "Transportation",
-        route: "/transportation",
-        component: <Transportation />,
-      },
-      {
-        name: "Utilities",
-        route: "/utilities",
-        component: <Utilities />,
-      },
-      {
-        name: "Food and Clothing",
-        route: "/foodandcloth",
-        component: <FoodAndCloth />,
-      },
-      {
-        name: "Restaurant and Accommodation",
-        route: "/restaurantAndAccommodation",
-        component: <RestaurantAndAccommodation />,
-      },
-      {
-        name: "Result",
-        route: "/result",
-        component: <Result />,
+        name: "",
+        collapse: [
+          {
+            name: "Period",
+            route: "/period",
+            component: <Period />,
+          },
+          {
+            name: "Transportation",
+            route: "/transportation",
+            component: <Transportation />,
+          },
+          {
+            name: "Utilities",
+            route: "/utilities",
+            component: <Utilities />,
+          },
+          {
+            name: "Food and Clothing",
+            route: "/foodandcloth",
+            component: <FoodAndCloth />,
+          },
+          {
+            name: "Restaurant and Accommodation",
+            route: "/restaurantAndAccommodation",
+            component: <RestaurantAndAccommodation />,
+          },
+          {
+            name: "Result",
+            route: "/result",
+            component: <Result />,
+          },
+        ],
       },
     ],
   },

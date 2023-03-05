@@ -106,11 +106,15 @@ function CenteredFooter({ company, links, socials, light }) {
 
 // Setting default values for the props of CenteredFooter
 CenteredFooter.defaultProps = {
-  company: { href: "https://yutongli.me/", name: "Yutong Li & Yuxuan Gao" },
+  company: { href: "", name: "Yutong Li & Yuxuan Gao" },
   links: [
     {
       href: "https://yutongli.me/",
-      name: "About us",
+      name: "About Yutong",
+    },
+    {
+      href: "https://jasongao.io/",
+      name: "About Yuxuan",
     },
     {
       href: "https://www.carbonfootprint.com/",
@@ -118,7 +122,10 @@ CenteredFooter.defaultProps = {
     },
   ],
   socials: [
-    { icon: <GitHubIcon fontSize="small" />, link: "https://github.com/creativetimofficial" },
+    {
+      icon: <GitHubIcon fontSize="small" />,
+      link: "https://github.com/StevenLyt/Co2Cal/tree/main/Co2Cal",
+    },
   ],
   light: false,
 };

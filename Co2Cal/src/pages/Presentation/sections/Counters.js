@@ -34,7 +34,7 @@ function Counters() {
               count={36.8}
               suffix=" Billion Tons"
               title="Global CO2 Emissions"
-              description="Global energy-related CO2 emissions grew in 2022 by 0.9%, or 321 million tonnes, reaching a new high of more than 36.8 billion tonnes, according to the report"
+              description="Global energy-related CO2 emissions grew in 2022 by 0.9%, or 321 million tons, reaching a new high of more than 36.8 billion tons"
             />
           </Grid>
           <Grid item xs={12} md={4} display="flex">
@@ -42,7 +42,7 @@ function Counters() {
             <DefaultCounterCard
               count={16}
               suffix=" Tons"
-              title="per person in the US"
+              title="Per person in the US"
               description="The average carbon footprint for a person in the United States is 16 tons, one of the highest rates in the world. Globally, the average carbon footprint is closer to 4 tons."
             />
             <Divider orientation="vertical" sx={{ display: { xs: "none", md: "block" }, ml: 0 }} />

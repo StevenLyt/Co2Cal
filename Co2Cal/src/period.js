@@ -42,15 +42,7 @@ class Period extends Component {
         <BaseLayout>
           <Container>
             <Grid container justifyContent="center">
-              <Grid
-                item
-                xs={12}
-                md={7}
-                mt={15}
-                mb={15}
-                alginItems="center"
-                justifyContent="center"
-              >
+              <Grid item xs={12} md={7} mt={15} mb={15} alginItems="center" justifyContent="center">
                 <MKTypography variant="h2" textAlign="center">
                   Please select the time period you would like to calculate your carbon footprint
                   for.
@@ -65,9 +57,15 @@ class Period extends Component {
                     this.setState({ value: e.target.value });
                   }}
                 >
-                  <FormControlLabel key="Day" value={0} control={<Radio />} label="Day" />;
-                  <FormControlLabel key="Week" value={1} control={<Radio />} label="Week" />;
-                  <FormControlLabel key="Month" value={2} control={<Radio />} label="Month" />;
+                  <FormControlLabel key="Day" value={0} control={<Radio />} label="Day" />
+                  <FormControlLabel
+                    key="Week"
+                    value={1}
+                    control={<Radio />}
+                    label="Week"
+                    sx={{ marginTop: "20px", marginBottom: "20px" }}
+                  />
+                  <FormControlLabel key="Month" value={2} control={<Radio />} label="Month" />
                 </RadioGroup>
               </Grid>
             </Grid>
