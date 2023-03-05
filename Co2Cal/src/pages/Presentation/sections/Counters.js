@@ -14,9 +14,10 @@ Coded by www.creative-tim.com
 */
 
 // @mui material components
-import Container from "@mui/material/Container";
+
 import Grid from "@mui/material/Grid";
 import Divider from "@mui/material/Divider";
+import Container from "@mui/material/Container";
 
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
@@ -52,7 +53,7 @@ function Counters() {
               count={2.28}
               suffix=" Times"
               title="faster in global warming"
-              description="According to NOAA', the combined land and ocean temperature has increased at an average rate of 0.14 degrees Fahrenheit per decade since 1880; however, the average rate of increase since 1981 has been more than twice as fast: 0.32 °F per decade."
+              description="The combined land and ocean temperature are increasing at a rate of 0.32 °F per decade, more than twice as fast as around 1880."
             />
           </Grid>
         </Grid>
