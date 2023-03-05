@@ -14,11 +14,7 @@ Another main feature is that after receiving users' inputs, Co2Cal analyzes the 
 
 ## How we built it
 
-### Front-end
-
-### Back-end
-
-We use AWS Lambda service to host and run our backend. Our front-end makes REST API call to endpoint through Amazon API Gateway and  triggers AWS Lambda function, which returns fetched data from Climatiq data server. 
+We have implemented a serverless architecture for our web application, where ReactJS manages the client-side logic and UI. For backend functionality, AWS Lambda is used. The front-end communicates with the API endpoint through Amazon API Gateway, which triggers the Lambda function. The Lambda function fetches data from the Climatiq data server and returns it to the client.
 
 ## Challenges we ran into
 
