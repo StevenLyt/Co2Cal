@@ -4,7 +4,7 @@
 
 Even though climate change and global warming have been among the hottest topics in recent decades, many people are unaware of the impact their daily activities have on the environment. Without knowing our daily carbon footprint, we may not realize how our lifestyle is impacting the planet. The importance of understanding our carbon footprint lies in the fact that greenhouse gases contribute to climate change and global warming, which have significant negative impacts on the environment, human health, and the economy.
 
-With that in mind, Co2Cal can be a powerful instrument for increasing environmental awareness,, encouraging people to take action, and promoting sustainability.
+With that in mind, Co2Cal can be a powerful instrument for increasing environmental awareness, encouraging people to take action, and promoting sustainability.
 
 ## What it does
 
@@ -14,7 +14,7 @@ Another main feature is that after receiving users' inputs, Co2Cal will analyze 
 
 ## How we built it
 
-We have implemented a serverless architecture for our web application, where ReactJS manages the client-side logic and UI. For backend functionality, AWS Lambda is used. The front-end communicates with the API endpoint through AWS API Gateway, which triggers the Lambda function. The Lambda function fetches data from the Climatiq data server and returns it to the client.
+We have implemented a serverless architecture for our web application, where ReactJS manages the client-side logic and UI. For backend functionality, AWS Lambda is used. The front-end communicates with the API endpoint through AWS API Gateway, which triggers the Lambda function. The Lambda function then fetches data from the Climatiq data server and returns it to the client.
 
 ## Challenges we ran into
 
@@ -37,3 +37,9 @@ We still have many ideas for Co2Cal that we were unable to implement due to time
 - Calculating carbon footprint from credit card transactions
 - A travel planner that prioritizes routes with lower carbon footprints
 - Adding more specific choices within each category
+
+## Powered by
+- Material Kit 2 by Creative Time
+- React
+- AWS API Gateway
+- AWS Lambda
