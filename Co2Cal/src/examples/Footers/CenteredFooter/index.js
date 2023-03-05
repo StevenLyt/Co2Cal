@@ -124,7 +124,7 @@ CenteredFooter.defaultProps = {
   socials: [
     {
       icon: <GitHubIcon fontSize="small" />,
-      link: "https://github.com/StevenLyt/Co2Cal/tree/main/Co2Cal",
+      link: "https://github.com/StevenLyt/Co2Cal",
     },
   ],
   light: false,
