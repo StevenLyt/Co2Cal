@@ -33,8 +33,7 @@ function DefaultInfoCard({ color, icon, title, description, direction, small }) 
           color={color}
           textGradient
         >
-          {" "}
-          <Icon>{icon}</Icon>{" "}
+          <Icon>{icon}</Icon>
         </MKTypography>
       ) : (
         icon

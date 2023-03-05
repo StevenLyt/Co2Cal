@@ -60,11 +60,6 @@ function FilledInfoCard({ variant, color, icon, title, description, action }) {
   let iconColor = color;
 
   iconColor = "dark";
-  // if (variant === "gradient" && color !== "light") {
-  //   iconColor = "white";
-  // } else if (variant === "gradient" && color === "light") {
-  //   iconColor = "dark";
-  // }
 
   const [rotate, setRotate] = useState(false);
 
@@ -83,7 +78,6 @@ function FilledInfoCard({ variant, color, icon, title, description, action }) {
       variant="contained"
       bgColor="transparent"
       borderRadius="xl"
-      coloredShadow="success"
       // shadow={color === "transparent" ? "none" : "md"}
       shadow="lg"
       onMouseEnter={rotate180}
@@ -93,46 +87,37 @@ function FilledInfoCard({ variant, color, icon, title, description, action }) {
         transform: rotate ? "translateY(10px) scale(1.05) " : "rotateY(0)",
         transformStyle: "preserve-3d",
         transition: "all 0.8s cubic-bezier(0.34, 1.45, 0.7, 1)",
-        // boxShadow: rotate ? "10px 10px 10px green" : "none",
         boxShadow:
           "0px 7px 8px -4px rgb(0 0 0 / 20%), 0px 12px 17px 2px rgb(0 0 0 / 14%), 0px 5px 22px 4px rgb(0 0 0 / 12%)",
-
-        // margin: 2,
-        // padding: 2,
-        // elevation: 12,
-        // border: "1px solid black",
-        // boxShadow: "5 5 5 5 rgba(23, 244, 0, 2)",
       }}
     >
-      <MKTypography
-        display="block"
-        variant="h3"
-        color={iconColor}
-        textGradient={variant === "contained"}
-        mt={-0.625}
-      >
-        {typeof icon === "string" ? <Icon>{icon}</Icon> : icon}
-      </MKTypography>
+      <Grid container justifyContent="center">
+        <Grid item xs={12} md={3}>
+          <MKTypography
+            display="block"
+            variant="h3"
+            color={iconColor}
+            textGradient={variant === "contained"}
+          >
+            {typeof icon === "string" ? <Icon>{icon}</Icon> : icon}
+          </MKTypography>
+        </Grid>
+        <Grid item xs={12} md={9}>
+          <MKTypography
+            // display="block"
+            textAlign="center"
+            variant="h3"
+            // color={variant === "contained" || color === "light" ? "dark" : "white"}
+            color="dark"
+            fontWeight="bold"
+            mb={3}
+            mr={7}
+          >
+            {title}
+          </MKTypography>
+        </Grid>
+      </Grid>
       <MKBox pt={{ xs: 3, md: 0 }} pl={{ xs: 0, md: 2 }} lineHeight={1}>
-        <MKTypography
-          // display="block"
-          textAlign="center"
-          variant="h3"
-          // color={variant === "contained" || color === "light" ? "dark" : "white"}
-          color="dark"
-          fontWeight="bold"
-          mb={1}
-        >
-          {title}
-        </MKTypography>
-        <MKTypography
-          display="block"
-          variant="body2"
-          color={variant === "contained" || color === "light" ? "text" : "white"}
-          mb={2}
-        >
-          {description}
-        </MKTypography>
         <Grid container>
           <Grid item xs={12} md={8}>
             <MKInput

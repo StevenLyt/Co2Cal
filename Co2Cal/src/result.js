@@ -203,6 +203,9 @@ class Result extends Component {
                   <MKTypography variant="h1" align="center" color="dark">
                     Your total carbon footprint
                   </MKTypography>
+                  <MKTypography variant="body1" align="center" color="dark" fontStyle="italic">
+                    Click a card to see our recommendation for you
+                  </MKTypography>
                 </Grid>
                 <Grid item xs={12} lg={3} sx={{ mx: "auto" }}>
                   <RotatingCard click={this.clickHandler} num={0}>
