@@ -39,6 +39,7 @@ import MuiLink from "@mui/material/Link";
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 import MKInput from "components/MKInput";
+import colors from "assets/theme/base/colors";
 
 function FilledInfoCard({ variant, color, icon, title, description, action }) {
   const buttonStyles = {
@@ -131,7 +132,7 @@ function FilledInfoCard({ variant, color, icon, title, description, action }) {
                 textAlign: "center",
                 outline: "none",
                 outlineWidth: "0px",
-                border: "2px solid green",
+                border: "2px solid grey",
               }}
             />
           </Grid>
@@ -141,7 +142,7 @@ function FilledInfoCard({ variant, color, icon, title, description, action }) {
               fontStyle="italic"
               fontWeight="bold"
               textAlign="right"
-              color="success"
+              color="babyBlue"
               // color={variant === "contained" ? color : "white"}
               sx={buttonStyles}
             >

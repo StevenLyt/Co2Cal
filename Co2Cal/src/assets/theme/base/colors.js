@@ -61,6 +61,7 @@ export default {
 
   success: {
     main: "#4CAF50",
+    // main: "rgb(68, 150, 17)",
     focus: "#67bb6a",
   },
 
@@ -81,6 +82,11 @@ export default {
 
   dark: {
     main: "#344767",
+    focus: "#2c3c58",
+  },
+  
+  babyBlue:{
+    main : "rgb(97, 168, 184)",
     focus: "#2c3c58",
   },
 
