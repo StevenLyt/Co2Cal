@@ -27,8 +27,10 @@ import MKButton from "components/MKButton";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFaucet, faCar, faBowlRice, faUtensils } from "@fortawesome/free-solid-svg-icons";
-import bgFront from "assets/images/rotating-card-bg-front.jpeg";
-import bgBack from "assets/images/rotating-card-bg-back.jpeg";
+import carFront from "assets/car.jpeg";
+import utilitiesFront from "assets/utilities.jpeg";
+import foodFront from "assets/food.jpeg";
+import restaurantFront from "assets/restaurant.jpeg";
 
 class Result extends Component {
   constructor(props) {
@@ -52,10 +54,12 @@ class Result extends Component {
       fruitAndVeg: 0,
       wine: 0,
 
-      transportation: {},
+      transportation: { recommendation: 0, stats: 0 },
       utilities: {},
       foodAndClothing: {},
       restaurantAndAccommodation: {},
+
+      whichSelected: -1,
     };
   }
 
@@ -165,6 +169,26 @@ class Result extends Component {
       .then(() => this.setState({ fetched: true }));
   }
 
+  clickHandler = (e) => {
+    this.setState({ whichSelected: e });
+  };
+
+  renderRecommendation = () => {
+    if (this.state.whichSelected === 0) {
+      return this.state.transportation.recommendation;
+    }
+    if (this.state.whichSelected === 1) {
+      return this.state.utilities.recommendation;
+    }
+    if (this.state.whichSelected === 2) {
+      return this.state.foodAndClothing.recommendation;
+    }
+    if (this.state.whichSelected === 3) {
+      return this.state.restaurantAndAccommodation.recommendation;
+    }
+    return "Select a category to see your recommendation";
+  };
+
   render() {
     return (
       <>
@@ -178,9 +202,9 @@ class Result extends Component {
                   </MKTypography>
                 </Grid>
                 <Grid item xs={12} lg={3} sx={{ mx: "auto" }}>
-                  <RotatingCard>
+                  <RotatingCard click={this.clickHandler} num={0}>
                     <RotatingCardFront
-                      image={bgFront}
+                      image={carFront}
                       icon={<FontAwesomeIcon icon={faCar} />}
                       title="Transportation"
                       description={
@@ -192,7 +216,6 @@ class Result extends Component {
                       }
                     />
                     <RotatingCardBack
-                      image={bgBack}
                       description=""
                       title={this.state.transportation ? this.state.transportation.stats : ""}
                       action={{
@@ -206,9 +229,9 @@ class Result extends Component {
                   </RotatingCard>
                 </Grid>
                 <Grid item xs={12} lg={3} sx={{ mx: "auto" }}>
-                  <RotatingCard>
+                  <RotatingCard click={this.clickHandler} num={1}>
                     <RotatingCardFront
-                      // image={bgFront}
+                      image={utilitiesFront}
                       icon={<FontAwesomeIcon icon={faFaucet} />}
                       title="Home Utilities"
                       description={this.state.gas + this.state.electricity + this.state.water}
@@ -226,9 +249,9 @@ class Result extends Component {
                   </RotatingCard>
                 </Grid>
                 <Grid item xs={12} lg={3} sx={{ mx: "auto" }}>
-                  <RotatingCard>
+                  <RotatingCard click={this.clickHandler} num={2}>
                     <RotatingCardFront
-                      // image={bgFront}
+                      image={foodFront}
                       icon={<FontAwesomeIcon icon={faBowlRice} />}
                       title="Food & Clothing"
                       description={
@@ -241,7 +264,6 @@ class Result extends Component {
                       }
                     />
                     <RotatingCardBack
-                      // image={bgBack}
                       title={this.state.foodAndClothing ? this.state.foodAndClothing.stats : ""}
                       description=""
                       action={{
@@ -256,15 +278,14 @@ class Result extends Component {
                   </RotatingCard>
                 </Grid>
                 <Grid item xs={12} lg={3} sx={{ mx: "auto" }}>
-                  <RotatingCard>
+                  <RotatingCard click={this.clickHandler} num={3}>
                     <RotatingCardFront
-                      // image={bgFront}
+                      image={restaurantFront}
                       icon={<FontAwesomeIcon icon={faUtensils} />}
                       title="Restaurant & Accommodation"
                       description={this.state.hotel + this.state.restaurant}
                     />
                     <RotatingCardBack
-                      // image={bgBack}
                       title={
                         this.state.restaurantAndAccommodation
                           ? this.state.restaurantAndAccommodation.stats
@@ -285,6 +306,39 @@ class Result extends Component {
               </Grid>
             )}
           </Container>
+          <Modal
+            open={this.state.whichSelected !== -1}
+            onClose={() => {
+              this.setState({ whichSelected: -1 });
+            }}
+            sx={{ display: "grid", placeItems: "center" }}
+          >
+            <Slide direction="down" in={this.state.whichSelected !== -1} timeout={500}>
+              <MKBox
+                position="relative"
+                width="50vw"
+                display="flex"
+                flexDirection="column"
+                borderRadius="xl"
+                variant="gradient"
+                shadow="sm"
+              >
+                <MKBox display="flex" alginItems="center" justifyContent="center" p={2}>
+                  <MKTypography variant="h4">Here is our recommendations </MKTypography>
+                </MKBox>
+                <Divider sx={{ my: 0 }} />
+                <MKBox px={6} py={3} textAlign="left">
+                  <MKTypography component="div" variant="body2" mb={1}>
+                    {this.renderRecommendation()}
+                  </MKTypography>
+                </MKBox>
+                <Divider light sx={{ my: 0 }} />
+                <MKBox display="flex" justifyContent="right" py={1} px={1.5}>
+                  <MKButton onClick={() => this.setState({ whichSelected: -1 })}>Got it</MKButton>
+                </MKBox>
+              </MKBox>
+            </Slide>
+          </Modal>
         </BaseLayout>
       </>
     );

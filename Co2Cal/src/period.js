@@ -45,7 +45,7 @@ class Period extends Component {
               <Grid
                 item
                 xs={12}
-                md={12}
+                md={7}
                 mt={15}
                 mb={15}
                 alginItems="center"
@@ -57,24 +57,15 @@ class Period extends Component {
                 </MKTypography>
               </Grid>
             </Grid>
-
-            <Grid container spacing={3} alginItems="center" justifyContent="center">
+            <Grid container spacing={3} justifyContent="center">
               <Grid item xs={12} lg={4}>
                 <RadioGroup
                   value={this.state.value}
                   onChange={(e) => {
                     this.setState({ value: e.target.value });
-                    console.log(this.state.value);
                   }}
                 >
-                  <FormControlLabel
-                    key="Day"
-                    value={0}
-                    control={<Radio />}
-                    label="Day"
-                    sx={{ fontSize: "px" }}
-                  />
-                  ;
+                  <FormControlLabel key="Day" value={0} control={<Radio />} label="Day" />;
                   <FormControlLabel key="Week" value={1} control={<Radio />} label="Week" />;
                   <FormControlLabel key="Month" value={2} control={<Radio />} label="Month" />;
                 </RadioGroup>
