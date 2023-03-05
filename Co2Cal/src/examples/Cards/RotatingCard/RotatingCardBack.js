@@ -64,27 +64,6 @@ function RotatingCard({ color, image, title, description, action }) {
             {`${key}: ${action[key]}`}
           </MKTypography>
         ))}
-        {/* {action && (
-          <MKBox width="50%" mt={4} mb={2} mx="auto">
-            {action.type === "external" ? (
-              <MKButton
-                component={MuiLink}
-                href={action.route}
-                target="_blank"
-                rel="noreferrer"
-                color="white"
-                size="small"
-                fullWidth
-              >
-                {action.label}
-              </MKButton>
-            ) : (
-              <MKButton component={Link} to={action.route} color="white" size="small" fullWidth>
-                {action.label}
-              </MKButton>
-            )}
-          </MKBox>
-        )} */}
       </MKBox>
     </MKBox>
   );
